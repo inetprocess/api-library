@@ -383,7 +383,7 @@ class Api implements LoggerAwareInterface
      *
      * @return array|mixed
      */
-    public function get($id)
+    public function getItem($id)
     {
         return $this->makeRequest("{$this->endpoint}/$id");
     }

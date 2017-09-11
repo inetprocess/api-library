@@ -38,7 +38,7 @@ class Stats extends Api
      *
      * @return array
      */
-    public function get($table = '', $start = 0, $limit = 0, array $order = array(), array $where = array())
+    public function getItems($table = '', $start = 0, $limit = 0, array $order = array(), array $where = array())
     {
         $parameters = array(
             'start' => $start,

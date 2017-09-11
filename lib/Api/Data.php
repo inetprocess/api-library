@@ -38,7 +38,7 @@ class Data extends Api
      *
      * @return array|mixed
      */
-    public function get($id, $options = array())
+    public function getItem($id, $options = array())
     {
         return $this->makeRequest("{$this->endpoint}/$id", $options);
     }
