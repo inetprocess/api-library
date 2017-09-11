@@ -9,6 +9,8 @@
 
 namespace Mautic\Api;
 
+use Mautic\Utils\Utils;
+
 /**
  * CampaignEvents Context
  */
@@ -60,7 +62,7 @@ class CampaignEvents extends Api
             'orderByDir'    => $orderByDir,
         );
 
-        $parameters = array_filter($parameters);
+        $parameters = Utils::arrayRemoveEmpty($parameters);
 
         return $this->makeRequest($this->endpoint.'/contact/'.$contactId, $parameters);
     }
@@ -88,7 +90,7 @@ class CampaignEvents extends Api
             'orderByDir'    => $orderByDir,
         );
 
-        $parameters = array_filter($parameters);
+        $parameters = Utils::arrayRemoveEmpty($parameters);
 
         return $this->makeRequest('campaigns/'.$campaignId.'/events/contact/'.$contactId, $parameters);
     }

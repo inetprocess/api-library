@@ -9,6 +9,8 @@
 
 namespace Mautic\Api;
 
+use Mautic\Utils\Utils;
+
 /**
  * Leads Context
  *
@@ -48,7 +50,7 @@ class Leads extends Contacts
             'orderByDir'    => $orderByDir,
         );
 
-        $parameters = array_filter($parameters);
+        $parameters = Utils::arrayRemoveEmpty($parameters);
 
         return $this->makeRequest('contacts/'.$id.'/notes', $parameters);
     }

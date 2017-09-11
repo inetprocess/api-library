@@ -9,6 +9,8 @@
 
 namespace Mautic\Api;
 
+use Mautic\Utils\Utils;
+
 /**
  * Contacts Context
  */
@@ -181,7 +183,7 @@ class Contacts extends Api
             'orderByDir' => $orderByDir,
         );
 
-        $parameters = array_filter($parameters);
+        $parameters = Utils::arrayRemoveEmpty($parameters);
 
         return $this->makeRequest($this->endpoint.'/'.$id.'/notes', $parameters);
     }
@@ -208,7 +210,7 @@ class Contacts extends Api
             'orderByDir' => $orderByDir,
         );
 
-        $parameters = array_filter($parameters);
+        $parameters = Utils::arrayRemoveEmpty($parameters);
 
         return $this->makeRequest($this->endpoint.'/'.$id.'/devices', $parameters);
     }

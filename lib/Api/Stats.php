@@ -9,6 +9,8 @@
 
 namespace Mautic\Api;
 
+use Mautic\Utils\Utils;
+
 /**
  * Stats Context
  */
@@ -45,7 +47,7 @@ class Stats extends Api
             'where' => $where,
         );
 
-        $parameters = array_filter($parameters);
+        $parameters = Utils::arrayRemoveEmpty($parameters);
 
         return $this->makeRequest($this->endpoint.'/'.$table, $parameters);
     }
