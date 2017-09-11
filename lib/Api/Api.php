@@ -9,6 +9,7 @@
 
 namespace Mautic\Api;
 
+use Mautic\Utils\Utils;
 use Mautic\QueryBuilder\QueryBuilder;
 use Mautic\Auth\ApiAuth;
 use Mautic\Auth\AuthInterface;
@@ -425,7 +426,7 @@ class Api implements LoggerAwareInterface
             'minimal'       => $minimal
         );
 
-        $parameters = array_filter($parameters);
+        $parameters = Utils::arrayRemoveEmpty($parameters);
 
         return $this->makeRequest($this->endpoint, $parameters);
     }
@@ -447,7 +448,7 @@ class Api implements LoggerAwareInterface
             'limit'  => $limit,
         );
 
-        $parameters = array_filter($parameters);
+        $parameters = Utils::arrayRemoveEmpty($parameters);
 
         $supported = $this->isSupported('getList');
 
