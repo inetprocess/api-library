@@ -131,8 +131,7 @@ abstract class AbstractAuth implements AuthInterface
             // Set file to upload
             // Sending file data requires an array to set
             // the Content-Type header to multipart/form-data
-            if (!empty($parameters['file']) && file_exists($parameters['file'])) {
-                $options[CURLOPT_INFILESIZE] = filesize($parameters['file']);
+            if (!empty($parameters['file']) && \SugarAutoloader::fileExists($parameters['file'])) {
                 $parameters['file']          = $this->createCurlFile($parameters['file']);
                 $headers[]                   = "Content-Type: multipart/form-data";
             } else {
